@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+.uk-form-danger {
+    border: 2px solid red !important;
+}
+.uk-form-success {
+    border: 2px solid green !important;
+}
+
+button:disabled {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
