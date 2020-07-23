@@ -6,14 +6,12 @@ export class Security {
         console.log(data);
 
         localStorage.setItem('petshopuser', btoa(data));
-        //localStorage.setItem('petshopuser', data);
         localStorage.setItem('petshoptoken', token);
     }
 
     public static setUser(user: User) {
         const data = JSON.stringify(user);
         localStorage.setItem('petshopuser', btoa(data));
-        //localStorage.setItem('petshopuser', data);
 
     }
 

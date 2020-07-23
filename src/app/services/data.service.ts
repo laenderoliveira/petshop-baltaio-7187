@@ -31,4 +31,19 @@ export class DataService {
     refreshToken() {
         return this.http.post(`${this.url}/accounts/refresh-token`, null, { headers: this.composeHeader()});
     }
+
+    create(data) {
+        return this.http.post(`${this.url}/accounts`, data);
+    }
+
+    resetPassword(data) {
+        return this.http.post(`${this.url}/accounts/reset-password`, data);
+    }
+
+    getUser() {
+        return this.http.get(`${this.url}/accounts`,{ headers: this.composeHeader()});
+    }
+    updateUser(data) {
+        return this.http.put(`${this.url}/accounts`, data, { headers: this.composeHeader()});
+    }
 }

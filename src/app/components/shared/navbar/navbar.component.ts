@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Security } from './../../../utils/security.utils';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
@@ -8,7 +9,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   public user: User;
 
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     Security.clear();
+    this.router.navigate(['/login'])
   }
 
 }

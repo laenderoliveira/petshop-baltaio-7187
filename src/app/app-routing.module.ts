@@ -1,3 +1,5 @@
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
+import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginPageComponent } from './pages/account/login-page/login-page.component';
@@ -15,16 +17,18 @@ const routes: Routes = [
     path: "", 
     component: FramePageComponent,
     children: [
-      { path: "", component: ProductsPageComponent },
-      { path: "cart", component: CartPageComponent }
+      { path: "", component: ProductsPageComponent, canActivate: [AuthService] },
+      { path: "cart", component: CartPageComponent, canActivate: [AuthService] }
     ]
   },
 
   { 
     path: "account", 
     component: FramePageComponent,
+    canActivate: [AuthService],
     children: [
-      { path: "pets", component: PetsPageComponent }
+      { path: "pets", component: PetsPageComponent },
+      { path: "profile", component: ProfilePageComponent }
     ]
   },
 
